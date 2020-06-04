@@ -1,0 +1,21 @@
+#STATUS
+status="/sys/devices/battery/power_supply/ac/subsystem/s2mu005-charger/status"
+#
+#
+while
+do
+c_status=$(cat $status)
+if [ "$c_status" = "Charging" ]
+then
+a=$(cat  /sys/devices/battery/power_supply/usb/subsystem/battery/siop_level)
+if [ "$a" -ne "100" ]
+then
+chmod 755  /sys/devices/battery/power_supply/usb/subsystem/battery/siop_level
+echo 100 > /sys/devices/battery/power_supply/usb/subsystem/battery/siop_level
+else 
+sleep 3
+fi
+else
+sleep 5
+fi
+done
