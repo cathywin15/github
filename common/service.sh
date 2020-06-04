@@ -2,7 +2,7 @@
 sleep 10
 echo 1024M >/sys/block/zram0/disksize        # Change ZRAM Size
 mkswap /dev/block/zram0                      # Create ZRAM Block
-swapon  /dev/block/zram0                     # Start ZRAM 
+swapon /dev/block/zram0                      # Start ZRAM 
 
 ## Fix charge                                  
 chmod 755 /system/bin/fixcharge              # Integrate Kapmino269's Fixcharge Module
