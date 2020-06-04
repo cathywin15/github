@@ -14,18 +14,19 @@ echo 200000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
 ## CPU Freq Limiter
 sleep 3
-chmod 644 /sys/power/cpufreq_max_limit       # Change File's Permission
-echo 1248 > /sys/power/cpufreq_max_limit     # Enable CPU Freq Limiter
-chmod 444 /sys/power/cpufreq_max_limit       # Disable Overwrite
+echo "1 200000:85 1248800:100" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
+echo 1248000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 sleep 240                                    # Wait 4 Minutes
 
 ## After 4 Minutes
-chmod 644 /sys/power/cpufreq_max_limit       # Change File's Permission
-echo -1 > /sys/power/cpufreq_max_limit       # Disable CPU limiter
+echo "1 200000:85 1094400:90" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
 
 ## Set Governor to Adaptive
 echo adaptive > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor    # Change Governor
 chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor          # Disable File's Overwrite
+
+## Disable CPU Limit
+echo -1 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 
 ## Set Wifi Tools Permission
 sleep 5
