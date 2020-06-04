@@ -26,7 +26,8 @@ echo adaptive > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor    # Chang
 chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor          # Disable File's Overwrite
 
 ## Disable CPU Limit
-echo -1 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+echo 200000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq      # Set Min Freq
+echo 1958400 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq     # Set Max Freq
 
 ## Set Wifi Tools Permission
 sleep 5
