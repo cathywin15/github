@@ -8,26 +8,22 @@ swapon /dev/block/zram0                      # Start ZRAM
 chmod 755 /system/bin/fixcharge              # Integrate Kapmino269's Fixcharge Module
 fixcharge
 
-## Set Min Freq to 200 MHz
-echo "1 200000:85 1094400:90" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
-echo 200000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-
 ## CPU Freq Limiter
 sleep 3
-echo "1 200000:85 1248800:100" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
+echo "1 960000:85 1248800:100" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
 echo 1248000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 sleep 240                                    # Wait 4 Minutes
 
 ## After 4 Minutes
-echo "1 200000:85 1094400:90" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
+echo "1 960000:85 1094400:90" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
 
 ## Set Governor to Adaptive
 echo adaptive > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor    # Change Governor
 chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor          # Disable File's Overwrite
 
 ## Disable CPU Limit
-echo 200000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq      # Set Min Freq
-echo 1958400 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq     # Set Max Freq
+echo 960000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq      # Set Min Freq
+echo 1497600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq     # Set Max Freq
 
 ## Set Wifi Tools Permission
 sleep 5

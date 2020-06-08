@@ -1,6 +1,6 @@
 id=AIOMedusa
 name=AIO Module for Medusa Kernel
-version=v1.1
+version=v1.4
 versionCode=1
 author=Batu33
 description=All In One. Integrated ZRAMStarter 1GB, CPU Freq Limiter, FixCharge, Governor Changer and Wifi Tools
