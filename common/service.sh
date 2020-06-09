@@ -25,6 +25,15 @@ chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor          # Disab
 echo 960000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq      # Set Min Freq
 echo 1497600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq     # Set Max Freq
 
+## Governor Values Changer
+chmod 644 /sys/block/mmcblk0/queue/read_ahead_kb                         # Set Files Permission
+chmod 644 /sys/block/mmcblk1/queue/read_ahead_kb
+
+sleep 3                                                                  # Wait 3 Second
+
+echo 2048 > /sys/block/mmcblk0/queue/read_ahead_kb                       # Change Internal Storage's Scheduler Value
+echo 1024 > /sys/block/mmcblk1/queue/read_ahead_kb                       # Change External Storage's Scheduler Value
+
 ## Set Wifi Tools Permission
 sleep 5
 chmod 755 /system/bin/airbase-ng
