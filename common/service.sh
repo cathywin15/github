@@ -1,6 +1,6 @@
-## ZRAM Starter 1GB
+## ZRAM Starter 1.5GB
 sleep 10
-echo 1024M >/sys/block/zram0/disksize        # Change ZRAM Size
+echo 1536M >/sys/block/zram0/disksize        # Change ZRAM Size
 mkswap /dev/block/zram0                      # Create ZRAM Block
 swapon /dev/block/zram0                      # Start ZRAM 
 
