@@ -10,8 +10,8 @@ fixcharge
 
 ## CPU Freq Limiter
 sleep 3
-echo "1 960000:85 1248800:100" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
-echo 1248000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+echo "1 960000:85 1094400:100" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
+echo 1094400 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 sleep 240                                    # Wait 4 Minutes
 
 ## After 4 Minutes
@@ -33,6 +33,10 @@ sleep 3                                                                  # Wait 
 
 echo 2048 > /sys/block/mmcblk0/queue/read_ahead_kb                       # Change Internal Storage's Scheduler Value
 echo 1024 > /sys/block/mmcblk1/queue/read_ahead_kb                       # Change External Storage's Scheduler Value
+
+## Change Entropy
+echo 512 > /proc/sys/kernel/random/read_wakeup_threshold
+echo 2000 > /proc/sys/kernel/random/write_wakeup_threshold
 
 ## Set Wifi Tools Permission
 sleep 5
