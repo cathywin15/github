@@ -1,1 +1,1 @@
-All In One. Integrated ZRAMStarter 1GB, CPU Freq Limiter, FixCharge, Governor Changer and Wifi Tools
+All In One. Integrated ZRAMStarter 1GB - 1.5GB, Auto CPU Freq Limiter, Auto Storage Governor Settings Changer, Auto SDCard Governor Settings Changer, Auto Entropy Settings Changer, FixCharge and Wifi Tools
