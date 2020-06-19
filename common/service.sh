@@ -10,12 +10,17 @@ fixcharge
 
 ## CPU Freq Limiter
 sleep 3
-echo "1 960000:85 1094400:100" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
-echo 1094400 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+echo "1 960000:85 1248800:100" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
+
+## Enable VDD Restriction
+echo Y > /sys/modules/msm_thermal/parameters/enabled
+echo 1 > /sys/modules/msm_thermal/vdd_restriction/enabled
 sleep 240                                    # Wait 4 Minutes
 
 ## After 4 Minutes
 echo "1 960000:85 1094400:90" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
+echo N > /sys/modules/msm_thermal/parameters/enabled
+echo 0 > /sys/modules/msm_thermal/vdd_restriction/enabled
 
 ## Set Governor to Adaptive
 echo adaptive > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor    # Change Governor
