@@ -122,7 +122,7 @@ REPLACE="
 # Set what you want to display when installing your module
 
 print_modname() {
-  ui_print "All In One Module for Medusa ernel"
+  ui_print "All In One Module for Medusa Kernel"
 }
 
 # Copy/extract your module files into $MODPATH in on_install.
