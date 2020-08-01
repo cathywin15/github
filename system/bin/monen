@@ -9,14 +9,7 @@
 #   If you want data packets only, use 100
 # - Conversion bit: not required (means no conversion - RADIOTAP
 #   instead of Ethernet)
-ch=0
-printf "\nEnter channel number which u want :  " 
-read ch 
-echo " "
-if  [ "$ch" -lt "14" ] && [ "$ch" -gt "0" ] 
-then
-
-CONF="${ch} 40 1 111 0"
+CONF="11 40 1 111 0"
 
 if [ "$(id -u)" != "0" ]; then
 	echo "This script must be run as root"
@@ -40,7 +33,7 @@ fi
 # Disable the interface
 # 'ip link set wlan0 down' will not work because the daemon will reload the
 # driver after some time, and interface will go down even if we set it up later
-ifconfig wlan0 down
+svc wifi disable
 sleep 1
 # Change driver mode to monitor-only
 echo 4 > /sys/module/wlan/parameters/con_mode
@@ -50,8 +43,3 @@ iwpriv wlan0 MonitorModeConf $CONF
 # Go go go
 iwpriv wlan0 monitor 1
 ip link set wlan0 up
-else
-echo "You are kidding , I will go "
-exit
-
-fi

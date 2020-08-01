@@ -122,7 +122,9 @@ REPLACE="
 # Set what you want to display when installing your module
 
 print_modname() {
-  ui_print "All In One Module for Medusa Kernel"
+  ui_print "******************************************"
+  ui_print "*  All In One Module for Medusa Kernel  *"
+  ui_print "******************************************"
 }
 
 # Copy/extract your module files into $MODPATH in on_install.
@@ -145,6 +147,17 @@ set_permissions() {
   # set_perm  $MODPATH/system/bin/app_process32   0     2000    0755      u:object_r:zygote_exec:s0
   # set_perm  $MODPATH/system/bin/dex2oat         0     2000    0755      u:object_r:dex2oat_exec:s0
   # set_perm  $MODPATH/system/lib/libart.so       0     0       0644
+  ui_print ""
+  ui_print ""
+  ui_print ""
+  ui_print "***********************************************************"
+  ui_print "Important Note:"
+  ui_print "Some Kali NetHunter Tools May Not Work with ARM32"
+  ui_print "Use ARM64 Rom for Full Compatibility"
+  ui_print "***********************************************************"
+  ui_print ""
+  ui_print ""
+  ui_print ""
 }
 
 # You can add more functions to assist your custom script code

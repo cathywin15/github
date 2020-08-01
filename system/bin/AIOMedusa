@@ -1,6 +1,6 @@
 ## ZRAM Starter 1.5GB
 sleep 3
-echo 1024M > /sys/block/zram0/disksize       # Change ZRAM Size
+echo 1536M > /sys/block/zram0/disksize       # Change ZRAM Size
 mkswap /dev/block/zram0                      # Create ZRAM Block
 swapon /dev/block/zram0                      # Start ZRAM 
 
@@ -11,7 +11,7 @@ fixcharge
 ## CPU Freq Limiter
 sleep 3
 echo "1 960000:85 1248800:100" >/sys/devices/system/cpu/cpufreq/interactive/target_loads
-echo "1248800" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq     # Set Max Freq
+echo "1248000" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq     # Set Max Freq
 
 ## Enable VDD Restriction
 echo "Y" > /sys/module/msm_thermal/parameters/enabled
@@ -24,8 +24,7 @@ echo "N" > /sys/module/msm_thermal/parameters/enabled
 echo "0" > /sys/module/msm_thermal/vdd_restriction/enabled
 
 ## Set Governor to Adaptive
-echo "adaptive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor    # Change Governor
-chmod "444" /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor          # Disable File's Overwrite
+echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor    # Change Governor
 
 ## Disable CPU Limit
 echo "960000" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq      # Set Min Freq
@@ -41,8 +40,8 @@ echo 2048 > /sys/block/mmcblk0/queue/read_ahead_kb                       # Chang
 echo 1024 > /sys/block/mmcblk1/queue/read_ahead_kb                       # Change External Storage's Scheduler Value
 
 ## Change Entropy
-echo 512 > /proc/sys/kernel/random/read_wakeup_threshold
-echo 2000 > /proc/sys/kernel/random/write_wakeup_threshold
+echo 1000 > /proc/sys/kernel/random/read_wakeup_threshold
+echo 1000 > /proc/sys/kernel/random/write_wakeup_threshold
 
 ## Set Wifi Tools Permission
 sleep 5
